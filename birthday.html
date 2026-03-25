@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>生日快樂 🎉</title>
+<style>
+body {
+margin: 0;
+background: black;
+color: white;
+font-family: "Arial", sans-serif;
+overflow: hidden;
+text-align: center;
+}
+
+#start {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-size: 24px;
+cursor: pointer;
+}
+
+#content {
+display: none;
+padding-top: 20vh;
+animation: fadeIn 2s;
+}
+
+h1 {
+font-size: 48px;
+color: #ffccff;
+}
+
+p {
+font-size: 22px;
+margin: 20px;
+line-height: 1.6;
+}
+
+@keyframes fadeIn {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+.heart {
+position: fixed;
+color: pink;
+font-size: 20px;
+animation: float 5s linear infinite;
+}
+
+@keyframes float {
+from {
+transform: translateY(100vh);
+opacity: 1;
+}
+to {
+transform: translateY(-10vh);
+opacity: 0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div id="start">👉 點一下，有驚喜</div>
+
+<div id="content">
+<h1>🎂 生日快樂！</h1>
+<p>
+今天是屬於妳的一天 ✨<br><br>
+謝謝妳一直陪在我身邊<br>
+有妳的日子真的很快樂 💛<br><br>
+希望今年的妳<br>
+依然可以開開心心、順順利利<br>
+想要的都慢慢實現 🌈<br><br>
+也希望未來的每一年<br>
+我都還在幫妳過生日 🎁
+</p>
+</div>
+
+<script>
+const start = document.getElementById("start");
+const content = document.getElementById("content");
+
+start.onclick = () => {
+start.style.display = "none";
+content.style.display = "block";
+createHearts();
+};
+
+function createHearts() {
+setInterval(() => {
+const heart = document.createElement("div");
+heart.className = "heart";
+heart.innerText = "💖";
+heart.style.left = Math.random() * 100 + "vw";
+heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+document.body.appendChild(heart);
+
+setTimeout(() => {
+heart.remove();
+}, 5000);
+}, 300);
+}
+</script>
+
+</body>
+</html>
